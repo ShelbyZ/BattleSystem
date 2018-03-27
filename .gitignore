@@ -1,3 +1,10 @@
+/.vs
+
+build/
+install/
+bin/
+CMakeFiles/
+
 # Compiled Object files
 *.slo
 *.lo
