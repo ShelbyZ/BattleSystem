@@ -6,6 +6,11 @@ bin/
 CMakeFiles/
 Testing/
 
+CMakeCache.txt
+Makefile
+CTestTestfile.cmake
+cmake_install.cmake
+
 # Compiled Object files
 *.slo
 *.lo

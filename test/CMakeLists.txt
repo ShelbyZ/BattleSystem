@@ -15,6 +15,7 @@ target_include_directories(unit_tests PRIVATE
 
 target_link_libraries(unit_tests battle_system gtest gtest_main)
 
-#gtest_add_tests(unit_tests SOURCES battle_system_tests.cpp)
 gtest_add_tests(unit_tests "" AUTO)
+
+# fix once can figure this out
 #gtest_discover_tests(unit_tests WORKING_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})

@@ -1,6 +1,19 @@
 #include "gtest/gtest.h"
 
-TEST(sample_test_case, sample_test)
+#include "../battle_system/battle_system.h"
+
+TEST(GetValue, GenericTest)
 {
-    EXPECT_EQ(1, 1);
+    auto system = CBattleSystem();
+
+    EXPECT_EQ(system.GetValue(), -1);
+}
+
+TEST(SetValue, GenericTest)
+{
+    auto system = CBattleSystem();
+    auto value = 9988;
+    system.SetValue(value);
+
+    EXPECT_EQ(system.GetValue(), value);
 }
