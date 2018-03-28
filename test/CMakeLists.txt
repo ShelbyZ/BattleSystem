@@ -4,8 +4,6 @@ project(BattleSystem)
 
 include(GoogleTest)
 
-enable_testing()
-
 add_executable(unit_tests
     battle_system_tests.cpp
 )

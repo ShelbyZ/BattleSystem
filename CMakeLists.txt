@@ -8,6 +8,8 @@ option(BUILD_TESTS "Build tests" ON)
 add_subdirectory(src)
 
 if (BUILD_TESTS)
+    enable_testing()
+
     add_subdirectory(external)
     add_subdirectory(test)
 endif()
