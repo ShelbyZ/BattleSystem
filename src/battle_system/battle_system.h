@@ -1,9 +1,9 @@
 #ifndef _BATTLE_SYSTEM_H
 #define _BATTLE_SYSTEM_H
 
-#include "exports.h"
+#include "battle_system_export.h"
 
-class BATTLESYSTEM_API CBattleSystem
+class BATTLE_SYSTEM_EXPORT CBattleSystem
 {
     public:
         CBattleSystem(void);

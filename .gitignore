@@ -11,6 +11,8 @@ Makefile
 CTestTestfile.cmake
 cmake_install.cmake
 
+battle_system_export.h
+
 # Compiled Object files
 *.slo
 *.lo
