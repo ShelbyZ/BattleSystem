@@ -26,6 +26,7 @@ install:
 
 build_script:
     - call "%VCVARSALL%" %ARCHITECTURE%
-    - cmake -G Ninja .
+    - cd %APPVEYOR_BUILD_FOLDER%
+    - cmake -G "%GENERATOR%" .
     - cmake --build . --config %CONFIGURATION%
     - ctest -C %CONFIGURATION% -V
