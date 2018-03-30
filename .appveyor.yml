@@ -1,0 +1,31 @@
+version: 0.1.{build}
+max_jobs: 4
+image: Visual Studio 2017
+
+matrix:
+    fast_finish: true
+
+platform:
+    - x86
+configuration:
+    - Release
+    - Debug
+
+environment:
+    NINJA_DIR: C:\Tools\ninja
+    GENERATOR: Ninja
+    VCVARSALL: '%ProgramFiles(x86)%\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat'
+    ARCHITECTURE: x86
+
+install:
+    - if not exist %NINJA_DIR%\ mkdir %NINJA_DIR%
+    - cd %NINJA_DIR%
+    - if not exist ninja.exe appveyor DownloadFile https://github.com/ninja-build/ninja/releases/download/v1.8.2/ninja-win.zip
+    - if not exist ninja.exe 7z x ninja-win.zip
+    - set PATH=%NINJA_DIR%;%PATH%
+
+build_script:
+    - call "%VCVARSALL%" %ARCHITECTURE%
+    - cmake -G"%GENERATOR%" .
+    - cmake --build . --config %CONFIGURATION%
+    - ctest -C %CONFIGURATION% -V
