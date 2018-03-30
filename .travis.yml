@@ -2,6 +2,8 @@ language: cpp
 dist: trusty
 sudo: false
 
+cache: ccache
+
 compiler:
     - gcc
 
@@ -16,9 +18,6 @@ addons:
 script:
     - export CC=gcc-7
     - export CXX=g++-7
-    - cmake --version
-    - gcc --version
-    - g++ --version
     - cmake -DCMAKE_BUILD_TYPE=Release .
     - make
     - make test
