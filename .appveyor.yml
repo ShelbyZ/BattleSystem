@@ -26,6 +26,6 @@ install:
 
 build_script:
     - call "%VCVARSALL%" %ARCHITECTURE%
-    - cmake -G"%GENERATOR%" .
+    - cmake -G "%GENERATOR%" .
     - cmake --build . --config %CONFIGURATION%
     - ctest -C %CONFIGURATION% -V
