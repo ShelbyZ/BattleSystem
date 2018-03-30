@@ -1,4 +1,5 @@
 # Battle System
+[![Build Status](https://travis-ci.org/ShelbyZ/BattleSystem.svg?branch=master)](https://travis-ci.org/ShelbyZ/BattleSystem)
 
 **Battle System** is a library to allow fighting on 1..* entities versus a player party consisting on 1..* controlled entites.
 
