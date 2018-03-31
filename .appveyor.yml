@@ -7,6 +7,7 @@ matrix:
 
 platform:
     - x86
+    - x64
 configuration:
     - Release
     - Debug
@@ -15,7 +16,6 @@ environment:
     NINJA_DIR: C:\Tools\ninja
     GENERATOR: Ninja
     VCVARSALL: '%ProgramFiles(x86)%\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat'
-    ARCHITECTURE: x86
 
 cache: c:\tools\vcpkg\installed\
 
@@ -25,12 +25,12 @@ install:
     - if not exist ninja.exe appveyor DownloadFile https://github.com/ninja-build/ninja/releases/download/v1.8.2/ninja-win.zip
     - if not exist ninja.exe 7z x ninja-win.zip
     - set PATH=%NINJA_DIR%;%PATH%
-    - vcpkg install gtest:%ARCHITECTURE%-windows
+    - vcpkg install gtest:%PLATFORM%-windows
     - vcpkg integrate install
 
 build_script:
-    - call "%VCVARSALL%" %ARCHITECTURE%
+    - call "%VCVARSALL%" %PLATFORM%
     - cd %APPVEYOR_BUILD_FOLDER%
-    - cmake -G "%GENERATOR%" DCMAKE_TOOLCHAIN_FILE=C:\Tools\vcpkg\scripts\buildsystems\vcpkg.cmake -DVCPKG_TARGET_TRIPLET=%ARCHITECTURE%-windows .
+    - cmake -G "%GENERATOR%" DCMAKE_TOOLCHAIN_FILE=C:\Tools\vcpkg\scripts\buildsystems\vcpkg.cmake -DVCPKG_TARGET_TRIPLET=%PLATFORM%-windows .
     - cmake --build . --config %CONFIGURATION%
     - ctest -C %CONFIGURATION% -V

@@ -1,6 +1,5 @@
 language: cpp
 dist: trusty
-sudo: false
 
 cache: ccache
 
@@ -20,9 +19,9 @@ before_script:
     - export CC=gcc-7
     - export CXX=g++-7
     - cd /usr/src/gtest
-    - cmake .
-    - make
-    - cp *.a /usr/lib
+    - sudocmake .
+    - sudo make
+    - sudo cp *.a /usr/lib
 
 script:
     - cmake -DCMAKE_BUILD_TYPE=Release .
