@@ -1,19 +1,21 @@
 project(BattleSystem)
 
-#include(${CMAKE_SOURCE_DIR}/cmake/gtest.cmake)
-
-include(GoogleTest)
-
 add_executable(unit_tests
     battle_system_tests.cpp
 )
 
+if(MSVC)
+    find_path(GTEST_INLCUDE_DIRS gtest/gtest.h)
+
+    set(GTEST_BOTH_LIBRARIES GTest::GTest GTest::Main)
+endif()
+
 target_include_directories(unit_tests PRIVATE
-    ../external/googletest/include
+    ${GTEST_INLCUDE_DIRS}
     ../src/battle_system
 )
 
-target_link_libraries(unit_tests battle_system gtest gtest_main)
+target_link_libraries(unit_tests battle_system ${GTEST_BOTH_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
 
 gtest_add_tests(unit_tests "" AUTO)
 

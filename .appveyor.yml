@@ -17,12 +17,16 @@ environment:
     VCVARSALL: '%ProgramFiles(x86)%\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat'
     ARCHITECTURE: x86
 
+cache: c:\tools\vcpkg\installed\
+
 install:
     - if not exist %NINJA_DIR%\ mkdir %NINJA_DIR%
     - cd %NINJA_DIR%
     - if not exist ninja.exe appveyor DownloadFile https://github.com/ninja-build/ninja/releases/download/v1.8.2/ninja-win.zip
     - if not exist ninja.exe 7z x ninja-win.zip
     - set PATH=%NINJA_DIR%;%PATH%
+    - vcpkg install gtest:%ARCHITECTURE%
+    - vcpkg integrate install
 
 build_script:
     - call "%VCVARSALL%" %ARCHITECTURE%

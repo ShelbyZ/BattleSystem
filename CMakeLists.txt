@@ -11,7 +11,8 @@ option(BUILD_TESTS "Build tests" ON)
 add_subdirectory(src)
 
 if (BUILD_TESTS)
-    add_subdirectory(external)
+    find_package(GTest REQUIRED)
+    find_package(Threads REQUIRED)
 
     enable_testing()
     add_subdirectory(test)

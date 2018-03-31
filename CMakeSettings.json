@@ -2,7 +2,9 @@
   "environments": [
     {
       "build_dir": "${projectDir}\\build\\${name}",
-      "install_dir": "${projectDir}\\install\\${name}"
+      "install_dir": "${projectDir}\\install\\${name}",
+      "vcpkg_dir": "Y:/vcpkg/scripts/buildsystems/vcpkg.cmake",
+      "vcpkg_triplet_suffix": "-windows"
     }
   ],
   "configurations": [
@@ -15,7 +17,14 @@
       "installRoot": "${env.install_dir}",
       "cmakeCommandArgs": "",
       "buildCommandArgs": "-v",
-      "ctestCommandArgs": ""
+      "ctestCommandArgs": "",
+      "variables": [{
+        "name": "CMAKE_TOOLCHAIN_FILE",
+        "value": "${env.vcpkg_dir}"
+      },{
+        "name": "VCPKG_TARGET_TRIPLET",
+        "value": "x86${env.vcpkg_triplet_suffix}"
+      }]
     },
     {
       "name": "x86-Release",
@@ -26,7 +35,14 @@
       "installRoot": "${env.install_dir}",
       "cmakeCommandArgs": "",
       "buildCommandArgs": "-v",
-      "ctestCommandArgs": ""
+      "ctestCommandArgs": "",
+      "variables": [{
+        "name": "CMAKE_TOOLCHAIN_FILE",
+        "value": "${env.vcpkg_dir}"
+      },{
+        "name": "VCPKG_TARGET_TRIPLET",
+        "value": "x86${env.vcpkg_triplet_suffix}"
+      }]
     },
     {
       "name": "x64-Debug",
@@ -37,7 +53,14 @@
       "installRoot": "${env.install_dir}",
       "cmakeCommandArgs": "",
       "buildCommandArgs": "-v",
-      "ctestCommandArgs": ""
+      "ctestCommandArgs": "",
+      "variables": [{
+        "name": "CMAKE_TOOLCHAIN_FILE",
+        "value": "${env.vcpkg_dir}"
+      },{
+        "name": "VCPKG_TARGET_TRIPLET",
+        "value": "x64${env.vcpkg_triplet_suffix}"
+      }]
     },
     {
       "name": "x64-Release",
@@ -48,7 +71,14 @@
       "installRoot": "${env.install_dir}",
       "cmakeCommandArgs": "",
       "buildCommandArgs": "-v",
-      "ctestCommandArgs": ""
+      "ctestCommandArgs": "",
+      "variables": [{
+        "name": "CMAKE_TOOLCHAIN_FILE",
+        "value": "${env.vcpkg_dir}"
+      },{
+        "name": "VCPKG_TARGET_TRIPLET",
+        "value": "x64${env.vcpkg_triplet_suffix}"
+      }]
     }
   ]
 }

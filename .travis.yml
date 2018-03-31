@@ -14,10 +14,17 @@ addons:
         packages:
             - gcc-7
             - g++-7
+            - libgtest-dev
 
-script:
+before_script:
     - export CC=gcc-7
     - export CXX=g++-7
+    - cd /usr/src/gtest
+    - sudo cmake .
+    - sudo make
+    - sudo cp *.a /usr/lib
+
+script:
     - cmake -DCMAKE_BUILD_TYPE=Release .
     - make
     - make test
