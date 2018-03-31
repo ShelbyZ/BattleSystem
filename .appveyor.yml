@@ -31,6 +31,6 @@ install:
 build_script:
     - call "%VCVARSALL%" %ARCHITECTURE%
     - cd %APPVEYOR_BUILD_FOLDER%
-    - cmake -G "%GENERATOR%" .
+    - cmake -G "%GENERATOR%" DCMAKE_TOOLCHAIN_FILE=C:\Tools\vcpkg\scripts\buildsystems\vcpkg.cmake -DVCPKG_TARGET_TRIPLET=%ARCHITECTURE%-windows .
     - cmake --build . --config %CONFIGURATION%
     - ctest -C %CONFIGURATION% -V

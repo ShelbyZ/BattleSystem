@@ -20,9 +20,9 @@ before_script:
     - export CC=gcc-7
     - export CXX=g++-7
     - cd /usr/src/gtest
-    - sudo cmake .
-    - sudo make
-    - sudo cp *.a /usr/lib
+    - cmake .
+    - make
+    - cp *.a /usr/lib
 
 script:
     - cmake -DCMAKE_BUILD_TYPE=Release .
