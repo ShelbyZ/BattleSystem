@@ -19,7 +19,7 @@ before_script:
     - export CC=gcc-7
     - export CXX=g++-7
     - cd /usr/src/gtest
-    - sudocmake .
+    - sudo cmake .
     - sudo make
     - sudo cp *.a /usr/lib
 
