@@ -1,5 +1,6 @@
 language: cpp
 dist: trusty
+sudo: required
 
 cache: ccache
 
@@ -21,10 +22,9 @@ before_script:
 
 script:
     - cd /usr/src/gtest
-    - ls -la
-    - cmake .
-    - make
-    - cp *.a /usr/lib
+    - sudo cmake .
+    - sudo make
+    - sudo cp *.a /usr/lib
     - cd $TRAVIS_BUILD_DIR
     - cmake -DCMAKE_BUILD_TYPE=Release .
     - make
