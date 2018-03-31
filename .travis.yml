@@ -18,12 +18,13 @@ addons:
 before_script:
     - export CC=gcc-7
     - export CXX=g++-7
+
+script:
     - cd /usr/src/gtest
     - sudo cmake .
     - sudo make
     - sudo cp *.a /usr/lib
-
-script:
+    - cd $TRAVIS_BUILD_DIR
     - cmake -DCMAKE_BUILD_TYPE=Release .
     - make
     - make test
