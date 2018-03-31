@@ -25,7 +25,7 @@ install:
     - if not exist ninja.exe appveyor DownloadFile https://github.com/ninja-build/ninja/releases/download/v1.8.2/ninja-win.zip
     - if not exist ninja.exe 7z x ninja-win.zip
     - set PATH=%NINJA_DIR%;%PATH%
-    - vcpkg install gtest:%ARCHITECTURE%
+    - vcpkg install gtest:%ARCHITECTURE%-windows
     - vcpkg integrate install
 
 build_script:
