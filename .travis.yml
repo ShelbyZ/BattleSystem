@@ -24,13 +24,13 @@ install:
     - cd ~/gtest
     - cmake .
     - make
-    - LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/gtest
+    - LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$(pwd)
     - export LD_LIBRARY_PATH
-    - LIBRARY_PATH=$LIBRARY_PATH:~/gtest
+    - LIBRARY_PATH=$LIBRARY_PATH:$(pwd)
     - export LIBRARY_PATH
     - ls -la
-
-
+    - echo $LD_LIBRARY_PATH
+    - echo $LIBRARY_PATH
 
 script:
     - cd $TRAVIS_BUILD_DIR
