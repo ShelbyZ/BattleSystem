@@ -33,3 +33,4 @@ build_script:
     - cd %APPVEYOR_BUILD_FOLDER%
     - cmake -G "%GENERATOR%" -DCMAKE_TOOLCHAIN_FILE=C:\Tools\vcpkg\scripts\buildsystems\vcpkg.cmake -DVCPKG_TARGET_TRIPLET=%PLATFORM%-windows .
     - cmake --build . --config %CONFIGURATION%
+    - ctest -C %CONFIGURATION% -V
