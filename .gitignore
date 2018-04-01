@@ -16,7 +16,6 @@ battle_system_export.h
 *.filters
 *.vcxproj
 *.sln
-*.txt
 
 # Compiled Object files
 *.slo
