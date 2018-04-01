@@ -1,6 +1,6 @@
 language: cpp
 dist: trusty
-sudo: required
+sudo: false
 
 cache: ccache
 
@@ -16,15 +16,20 @@ addons:
             - g++-7
             - libgtest-dev
 
-before_script:
+install:
     - export CC=gcc-7
     - export CXX=g++-7
+    - mkdir ~/gtest
+    - cp -r /usr/src/gtest ~/gtest
+    - cd ~/gtest
+    - cmake .
+    - make
+    - LD_LIBRARY_PATH=~/gtest:$LD_LIBRARY_PATH
+    - export LD_LIBRARY_PATH
+
+
 
 script:
-    - cd /usr/src/gtest
-    - sudo cmake .
-    - sudo make
-    - sudo cp *.a /usr/lib
     - cd $TRAVIS_BUILD_DIR
     - cmake -DCMAKE_BUILD_TYPE=Release .
     - make
