@@ -24,9 +24,9 @@ install:
     - cd ~/gtest
     - cmake .
     - make
-    - LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$(pwd)
+    - LD_LIBRARY_PATH=$(pwd)
     - export LD_LIBRARY_PATH
-    - LIBRARY_PATH=$LIBRARY_PATH:$(pwd)
+    - LIBRARY_PATH=$(pwd)
     - export LIBRARY_PATH
     - ls -la
     - echo $LD_LIBRARY_PATH
