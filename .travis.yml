@@ -20,7 +20,7 @@ install:
     - export CC=gcc-7
     - export CXX=g++-7
     - mkdir ~/gtest
-    - cp -r /usr/src/gtest ~/gtest
+    - cp -r /usr/src/gtest/. ~/gtest
     - cd ~/gtest
     - cmake .
     - make
