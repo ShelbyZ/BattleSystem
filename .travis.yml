@@ -24,8 +24,7 @@ install:
     - cd ~/gtest
     - cmake .
     - make
-    - mkdir $TRAVIS_BUILD_DIR/lib
-    - cp *.a $TRAVIS_BUILD_DIR/lib
+    - export GTEST_ROOT=$(pwd)
 
 script:
     - cd $TRAVIS_BUILD_DIR
