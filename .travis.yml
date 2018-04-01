@@ -24,13 +24,8 @@ install:
     - cd ~/gtest
     - cmake .
     - make
-    - LD_LIBRARY_PATH=$(pwd)
-    - export LD_LIBRARY_PATH
-    - LIBRARY_PATH=$(pwd)
-    - export LIBRARY_PATH
-    - ls -la
-    - echo $LD_LIBRARY_PATH
-    - echo $LIBRARY_PATH
+    - ln -s $(pwd)/libgtest.a /usr/lib/libgtest.a 
+    - ln -s $(pwd)/libgtest_main.a /usr/lib/libgtest_main.a
 
 script:
     - cd $TRAVIS_BUILD_DIR
