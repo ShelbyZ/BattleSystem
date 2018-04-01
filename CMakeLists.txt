@@ -11,7 +11,7 @@ option(BUILD_TESTS "Build tests" ON)
 add_subdirectory(src)
 
 if (BUILD_TESTS)
-    find_package(GTest REQUIRED)
+    find_package(GTest PATH ${CMAKE_SOURCE_DIR}/lib REQUIRED)
     find_package(Threads REQUIRED)
 
     enable_testing()
