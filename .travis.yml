@@ -15,6 +15,8 @@ addons:
             - gcc-7
             - g++-7
             - libgtest-dev
+            - lcov
+            - gcovr
 
 install:
     - export CC=gcc-7
@@ -28,6 +30,9 @@ install:
 
 script:
     - cd $TRAVIS_BUILD_DIR
-    - cmake -DCMAKE_BUILD_TYPE=Release .
+    - cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTS=ON -DCOVERAGE=ON .
     - make
-    - make test
+    - make BattleSystem_coverage
+
+after_success:
+    - bash <(curl -s https://codecov.io/bash)

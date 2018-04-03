@@ -5,6 +5,7 @@ install/
 bin/
 CMakeFiles/
 Testing/
+BattleSystem_coverage/
 
 CMakeCache.txt
 Makefile
