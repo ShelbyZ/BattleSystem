@@ -30,7 +30,7 @@ install:
 
 script:
     - cd $TRAVIS_BUILD_DIR
-    - cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTS=ON -DCOVERAGE=ON .
+    - cmake -DCMAKE_BUILD_TYPE=Debug -DBUILD_TESTS=ON -DCOVERAGE=ON .
     - make
     - make BattleSystem_coverage
 
