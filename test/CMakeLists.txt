@@ -2,6 +2,7 @@ project(BattleSystem)
 
 add_executable(unit_tests
     battle_system_tests.cpp
+    entity_tests.cpp
 )
 
 if(MSVC)
