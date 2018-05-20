@@ -6,13 +6,13 @@
 #include <string>
 #include <string_view>
 
-class BATTLE_SYSTEM_EXPORT CEntity
+class CEntity
 {
     public:
-        CEntity(std::string& name);
-        CEntity(std::string&& name);
-        bool operator==(const CEntity&) const;
-        std::string_view getName() const;
+        BATTLE_SYSTEM_EXPORT CEntity(std::string& name);
+        BATTLE_SYSTEM_EXPORT CEntity(std::string&& name);
+        BATTLE_SYSTEM_EXPORT bool operator==(const CEntity&) const;
+        BATTLE_SYSTEM_EXPORT std::string_view getName() const;
 
     private:
         void validateEntity();

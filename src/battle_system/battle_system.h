@@ -8,7 +8,7 @@
 
 #include "entity.h"
 
-class BATTLE_SYSTEM_EXPORT CBattleSystem
+class CBattleSystem
 {
     public:
         enum class EntityType
@@ -17,9 +17,9 @@ class BATTLE_SYSTEM_EXPORT CBattleSystem
             PLAYER,
             ENEMY
         };
-        CBattleSystem(void);
-        void registerEntity(CEntity&, EntityType);
-        const std::vector<CEntity>& getEntities(EntityType) const;
+        BATTLE_SYSTEM_EXPORT CBattleSystem(void);
+        BATTLE_SYSTEM_EXPORT void registerEntity(CEntity&, EntityType);
+        BATTLE_SYSTEM_EXPORT const std::vector<CEntity>& getEntities(EntityType) const;
 
     private:
         bool isValidType(EntityType) const;
