@@ -1,16 +1,47 @@
+#include <stdexcept>
+
 #include "battle_system.h"
 
 CBattleSystem::CBattleSystem()
 {
-    _value = -1;
 }
 
-int CBattleSystem::GetValue() const
+void CBattleSystem::registerEntity(CEntity& entity, EntityType type)
 {
-    return _value;
+    if (!isValidType(type))
+    {
+        throw std::logic_error("Type must be valid");
+    }
+
+    _entities[type].push_back(std::move(entity));
 }
 
-void CBattleSystem::SetValue(int value)
+const std::vector<CEntity>& CBattleSystem::getEntities(EntityType type) const
 {
-    _value = value;
+    if (!isValidType(type))
+    {
+        throw std::logic_error("Type must be valid");
+    }
+
+    auto item = _entities.find(type);
+    if (item != _entities.end())
+    {
+        return item->second;
+    }
+    else
+    {
+        throw std::logic_error("Type not found");
+    }
+}
+
+bool CBattleSystem::isValidType(EntityType type) const
+{
+    switch(type)
+    {
+        case EntityType::PLAYER:
+        case EntityType::ENEMY:
+            return true;
+        default:
+            return false;
+    }
 }

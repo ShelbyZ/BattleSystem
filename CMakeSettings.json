@@ -3,7 +3,7 @@
     {
       "build_dir": "${projectDir}\\build\\${name}",
       "install_dir": "${projectDir}\\install\\${name}",
-      "vcpkg_dir": "Y:/vcpkg/scripts/buildsystems/vcpkg.cmake",
+      "vcpkg_dir": "${projectDir}/vcpkg/scripts/buildsystems/vcpkg.cmake",
       "vcpkg_triplet_suffix": "-windows"
     }
   ],

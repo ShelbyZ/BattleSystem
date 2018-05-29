@@ -5,6 +5,7 @@ set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 
 add_library(battle_system SHARED
     battle_system.cpp
+    entity.cpp
 )
 
 target_compile_definitions(battle_system PRIVATE battle_system_EXPORTS)
