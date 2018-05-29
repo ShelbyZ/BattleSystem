@@ -8,7 +8,7 @@ include(GenerateExportHeader)
 include(ProcessorCount) 
 ProcessorCount(CORES)
 
-option(BUILD_TESTS "Build tests" ON)
+option(BUILD_TESTS "Build tests" OFF)
 option(COVERAGE "Run Code Coverage" OFF)
 
 if(COVERAGE)
