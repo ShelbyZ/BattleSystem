@@ -37,4 +37,4 @@ script:
 
 after_success:
     - bash <(curl -s https://codecov.io/bash)
-    - coveralls --gcov-options '\-lp'
+    - coveralls --exclude CMakeFiles --exclude vcpkg --gcov-options '\-lp'
