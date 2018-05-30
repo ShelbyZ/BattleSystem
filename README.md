@@ -2,6 +2,7 @@
 [![Build Status](https://travis-ci.org/ShelbyZ/BattleSystem.svg?branch=master)](https://travis-ci.org/ShelbyZ/BattleSystem)
 [![Build status](https://ci.appveyor.com/api/projects/status/ijaw7cb51cbwxvq4/branch/master?svg=true)](https://ci.appveyor.com/project/ShelbyZ/battlesystem/branch/master)
 [![codecov](https://codecov.io/gh/ShelbyZ/BattleSystem/branch/master/graph/badge.svg)](https://codecov.io/gh/ShelbyZ/BattleSystem)
+[![Coverage Status](https://coveralls.io/repos/github/ShelbyZ/BattleSystem/badge.svg)](https://coveralls.io/github/ShelbyZ/BattleSystem)
 
 **Battle System** is a library to allow fighting on 1..* entities versus a player party consisting on 1..* controlled entites.
 
