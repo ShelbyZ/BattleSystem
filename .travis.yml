@@ -27,6 +27,7 @@ install:
     - cmake .
     - make
     - export GTEST_ROOT=$(pwd)
+    - pip install --user cpp-coveralls
 
 script:
     - cd $TRAVIS_BUILD_DIR
@@ -36,3 +37,4 @@ script:
 
 after_success:
     - bash <(curl -s https://codecov.io/bash)
+    - coveralls --gcov-options '\-lp'
