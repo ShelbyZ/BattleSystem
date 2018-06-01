@@ -1,8 +1,27 @@
+#include <string>
+
 #include "gtest/gtest.h"
 
 #include "../battle_system/entity.h"
 
 TEST(Reference, Constructor)
+{
+    std::string name = "shelby";
+    auto entity = CEntity(name);
+
+    ASSERT_EQ("shelby", entity.getName());
+    ASSERT_EQ("", name);
+}
+
+TEST(Reference_EmptyName, Constructor)
+{
+    ASSERT_THROW({
+        std::string name = "";
+        auto entity = CEntity(name);
+    }, std::logic_error);
+}
+
+TEST(AutoReference, Constructor)
 {
     auto name = "shelby";
     auto entity = CEntity(name);
@@ -10,7 +29,7 @@ TEST(Reference, Constructor)
     ASSERT_EQ(name, entity.getName());
 }
 
-TEST(Reference_EmptyName, Constructor)
+TEST(AutoReference_EmptyName, Constructor)
 {
     ASSERT_THROW({
         auto name = "";
