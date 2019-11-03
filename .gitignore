@@ -12,6 +12,8 @@ Makefile
 CTestTestfile.cmake
 cmake_install.cmake
 
+unit_tests*
+
 battle_system_export.h
 
 rules.ninja

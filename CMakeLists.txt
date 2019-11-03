@@ -14,7 +14,7 @@ option(COVERAGE "Run Code Coverage" OFF)
 if(COVERAGE)
     message(STATUS "Code Coverage enabled")
     include(${CMAKE_SOURCE_DIR}/cmake/CodeCoverage.cmake)
-    set(COVERAGE_EXCLUDES "gtest/*" "c++/*" "src/arena/*" "CMakeFiles/*" "vcpkg/*")
+    set(COVERAGE_EXCLUDES "gtest/*" "c++/*" "*/src/arena/*" "*/test/*" "CMakeFiles/*" "*/vcpkg/*")
     setup_target_for_coverage(NAME ${PROJECT_NAME}_coverage EXECUTABLE unit_tests -j ${CORES} DEPENDENCIES battle_system)
 
     append_coverage_compiler_flags()
